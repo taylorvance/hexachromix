@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hexachromix - Coming Soon</title>
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+	<style>
+		html, body {
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: calc(0.8em + 0.5vmin);
+			margin: 0;
+			height: 100%;
+		}
+		.flex-wrapper {
+			display: flex;
+			flex-flow: column;
+			height: 100%;
+		}
+		.flex-row { flex: 0 1 auto; }
+		.flex-row-stretch { flex: 1 1 auto; }
+	</style>
+
+	<center class="flex-wrapper">
+		<div class="flex-row">
+			<div style="font-family: 'Orbitron', sans-serif">
+				<h1 style="font-size:2.5em; letter-spacing:0.2em;">HEXACHROMIX</h1>
+				<p style="letter-spacing:0.1em">A strategy game by <a href="https://tvprograms.tech">Taylor Vance</a></p>
+			</div>
+			<p><i>Coming soon*</i></p>
+		</div>
+
+		<svg class="flex-row-stretch" viewBox="0 0 100 100">
+			<mask id="cut-corners">
+				<rect x="0" y="0" width="100%" height="100%" fill="white"/>
+
+				<line x1="25" y1="6" x2="75" y2="93" stroke="black" stroke-width="7" stroke-linecap="round"/>
+				<line x1="75" y1="6" x2="25" y2="93" stroke="black" stroke-width="7" stroke-linecap="round"/>
+				<line x1="100" y1="50" x2="0" y2="50" stroke="black" stroke-width="7" stroke-linecap="round"/>
+			</mask>
+
+			<g mask="url(#cut-corners)">
+				<polygon points="25.0,6.699 75.0,6.699 67.678,19.381 32.322,19.381" fill="red" stroke="none" />
+				<polygon points="75.0,6.699 100.0,50 85.355,50 67.678,19.381" fill="yellow" stroke="none" />
+				<polygon points="100.0,50 75.0,93.301 67.678,80.619 85.355,50" fill="green" stroke="none" />
+				<polygon points="75.0,93.301 25.0,93.301 32.322,80.619 67.678,80.619" fill="cyan" stroke="none" />
+				<polygon points="25.0,93.301 0.0,50 14.645,50 32.322,80.619" fill="blue" stroke="none" />
+				<polygon points="0.0,50 25.0,6.699 32.322,19.381 14.645,50" fill="magenta" stroke="none" />
+			</g>
+		</svg>
+
+		<p class="flex-row" style="font-size:0.9em">
+			<i>* Aiming for late-2020. Maybe mid-2021. If you're still seeing this message in 2022, please kick me.</i>
+		</p>
+	</center>
+</body>
+</html>
