@@ -1,1 +1,1 @@
-# hexachromix
+# Hexachromix
