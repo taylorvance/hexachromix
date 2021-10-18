@@ -41,13 +41,13 @@
 	<center class="flex-wrapper">
 		<div class="flex-row">
 			<div style="font-family: 'Orbitron', sans-serif">
-				<h1 style="font-size:2.5em; letter-spacing:0.2em;">HEXACHROMIX</h1>
+				<h1 style="font-size:2.5em; letter-spacing:0.4em;">HEXACHROMIX</h1>
 				<p style="letter-spacing:0.1em">A color mixing strategy game, by <a href="https://tvprograms.tech">Taylor Vance</a></p>
 			</div>
 		</div>
 
-		<div class="flex-row" style="margin-top:0.5em">
-			Coming soon*
+		<div class="flex-row" style="margin-top:1em">
+			<i>in alpha testing* &mdash; participation and feedback is appreciated!</i>
 		</div>
 
 		<svg class="flex-row-stretch" viewBox="0 0 100 100">
@@ -69,9 +69,46 @@
 			</g>
 		</svg>
 
-		<p class="flex-row">
-			<i>* Aiming for late-2020. Maybe mid-2021. If you're still seeing this message in 2022, please kick me.</i>
-		</p>
+		<div class="flex-row">
+			<div style="margin-bottom:1em">
+				<b>*Server Status:</b>
+				<div id="site-status">Checking server status...</div>
+			</div>
+
+			<script>
+				function is_online(url, callback) {
+					// try to load favicon (timeout after 5s)
+					var timer = setTimeout(function(){ callback(false); }, 5000);
+
+					var img = document.createElement("img");
+
+					img.onload = function() {
+						clearTimeout(timer);
+						callback(true);
+					};
+					img.onerror = function() {
+						clearTimeout(timer);
+						callback(false);
+					};
+
+					img.src = url;
+					console.log("trying to load img", img.src);
+				}
+
+				setTimeout(function() {
+					var url = "http://alpha.hexachromix.io";
+					is_online(url+"/static/img/favicon.ico", function(online){
+						var html = "";
+						if(online) {
+							html = "The test server is ONLINE! Click <a href='"+url+"'>here</a> to continue.";
+						} else {
+							html = "The test server appears to be OFFLINE. Please check back later, or ask Taylor to fix it.";
+						}
+						document.getElementById('site-status').innerHTML = html;
+					});
+				}, 1000);
+			</script>
+		</div>
 	</center>
 </body>
 </html>
